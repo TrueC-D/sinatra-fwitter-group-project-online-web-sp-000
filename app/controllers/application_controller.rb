@@ -6,5 +6,15 @@ class ApplicationController < Sinatra::Base
     set :public_folder, 'public'
     set :views, 'app/views'
   end
+  
+  get '/' do 
+    "Welcome to Fwitter"
+  end
+  
+  get '/signup' do
+  end
+  
+  get '/login' do
+  end
 
 end
