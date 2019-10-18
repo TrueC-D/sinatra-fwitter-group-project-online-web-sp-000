@@ -17,7 +17,13 @@ class ApplicationController < Sinatra::Base
   get '/login' do
   end
   
+  post '/login' do 
+  end
+  
   get '/tweets' do 
+  end
+  
+  get '/logout' do
   end
 
 end
