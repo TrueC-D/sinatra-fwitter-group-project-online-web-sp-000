@@ -16,10 +16,12 @@ class ApplicationController < Sinatra::Base
   end
   
   post '/signup' do
-    if params[:username] || params[:email] || params[:password] == "".
-      redirect '
-    else
-      redirect '/tweets'
+    params.each do |key, value|
+      if value.empty? == true
+        redirect 'signup'
+      else
+        redirect '/tweets'
+      end
     end
   end
   
