@@ -18,7 +18,7 @@ class ApplicationController < Sinatra::Base
   post '/signup' do
     params.each do |key, value|
       if value.empty? == true
-        redirect 'signup'
+        redirect '/signup'
       else
         redirect '/tweets'
       end
