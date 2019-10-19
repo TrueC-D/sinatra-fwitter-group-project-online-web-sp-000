@@ -12,10 +12,10 @@ class ApplicationController < Sinatra::Base
   end
   
   get '/signup' do
-    if 
-    else
+    # if 
+    # else
       erb :'users/create_user'
-    end
+    # end
   end
   
   post '/signup' do
@@ -32,7 +32,7 @@ class ApplicationController < Sinatra::Base
   end
   
   post '/login' do 
-    
+    redirect :'/tweets'
   end
   
   get '/tweets' do 
@@ -40,7 +40,6 @@ class ApplicationController < Sinatra::Base
   end
   
   get '/logout' do
-    ''
   end
 
 end
