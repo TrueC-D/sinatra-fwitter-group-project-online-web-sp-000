@@ -16,13 +16,24 @@ class ApplicationController < Sinatra::Base
   end
   
   post '/signup' do
-    params.each do |key, value|
-      if value.empty? == true
-        redirect '/signup'
-      else
-        redirect '/tweets'
-      end
-    end
+    # user_data = []
+    # params.each do |key, value|
+    #   if value.strip.length == 0
+    #     redirect '/signup'
+    #   el
+    
+  #     @key =
+  #     if value.empty? == true
+  #       redirect '/signup'
+  #     else
+  #       redirect '/tweets'
+  #     end
+  #   end
+  # end
+    if params.collect {|key, value| value.strip.length}.any? == 0
+      redirect '/signup'
+    else
+    redirect '/tweets'
   end
   
   get '/login' do
