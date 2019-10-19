@@ -12,11 +12,14 @@ class ApplicationController < Sinatra::Base
   end
   
   get '/signup' do
-    erb :'users/create_user'
+    if 
+    else
+      erb :'users/create_user'
+    end
   end
   
   post '/signup' do
-    if params.any? {|key, value| value.length == 0} == true
+    if params.any? {|key, value| value.strip.length == 0} == true
       redirect '/signup'
     else
       redirect '/tweets'
@@ -24,6 +27,7 @@ class ApplicationController < Sinatra::Base
   end
   
   get '/login' do
+    
     erb :'users/login'
   end
   
