@@ -30,10 +30,14 @@ class ApplicationController < Sinatra::Base
   #     end
   #   end
   # end
-    if params.collect {|key, value| value.strip.length}.any? == 0
+    if params.any? {|key, value| value.length == 0} == true
+    # value_array = params.collect {|key, value| value.strip.length}
+    # binding.pry
+    
       redirect '/signup'
     else
-    redirect '/tweets'
+      redirect '/tweets'
+    end
   end
   
   get '/login' do
