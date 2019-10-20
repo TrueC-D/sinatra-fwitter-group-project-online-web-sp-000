@@ -1,5 +1,7 @@
 class CreateTweets < ActiveRecord::Migration
   def change
-    t.integer :user_id
+    create_table :items do |t|
+      t.string :content
+    end
   end
 end
