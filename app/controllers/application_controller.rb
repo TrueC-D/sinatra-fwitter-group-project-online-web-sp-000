@@ -19,11 +19,12 @@ class ApplicationController < Sinatra::Base
   end
   
   post '/signup' do
-    if params.any? {|key, value| value.strip.length == 0} == true
+
+     if params.any? {|key, value| value.strip.length == 0} == true
       redirect '/signup'
-    else
+     else
       redirect '/tweets'
-    end
+     end
   end
   
   get '/login' do
