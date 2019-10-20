@@ -19,12 +19,13 @@ class ApplicationController < Sinatra::Base
   end
   
   post '/signup' do
-
-     if params.any? {|key, value| value.strip.length == 0} == true
+    if params.any? {|key, value| value.strip.length == 0} == true
       redirect '/signup'
-     else
+    else
       redirect '/tweets'
-     end
+      user = User.new(:username => params[:username], :email => params[:email], :pawword => params[:password])
+      user.save
+    end
   end
   
   get '/login' do
@@ -33,6 +34,7 @@ class ApplicationController < Sinatra::Base
   end
   
   post '/login' do 
+    user = User.find_by(:username => params[:username])
     redirect :'/tweets'
   end
   
