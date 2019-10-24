@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20191020051915) do
 
-  create_table "items", force: :cascade do |t|
+  create_table "tweets", force: :cascade do |t|
     t.string "content"
   end
 
