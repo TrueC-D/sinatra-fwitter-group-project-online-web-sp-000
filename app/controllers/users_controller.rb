@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   get '/signup' do
     @current_user = User.find_by_id(session[:user_id])
-    binding.pry
     if @current_user
       redirect '/tweets'
     else
@@ -15,6 +14,7 @@ class UsersController < ApplicationController
     else
       user = User.new(:username => params[:username], :email => params[:email], :password => params[:password])
       user.save
+      session[:user_id] = user.id
       redirect '/tweets'
     end
   end
