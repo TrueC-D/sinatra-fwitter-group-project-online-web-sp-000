@@ -15,19 +15,18 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/signup' do
-    if session[:user_id]
-      erb :'users/create_user'
-    else
+    if session[:user_id] != nil
       redirect '/tweets'
-    end
+    else
       erb :'users/create_user'
+    end
   end
 
   post '/signup' do
     if params.any? {|key, value| value.strip.length == 0} == true
       redirect '/signup'
     else
-      user = User.new(:username => params[:username], :email => params[:email], :pawword => params[:password])
+      user = User.new(:username => params[:username], :email => params[:email], :password => params[:password])
       user.save
       redirect '/tweets'
     end
@@ -52,6 +51,8 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/logout' do
+    session.clear
+    redirect '/'
   end
 
 end
