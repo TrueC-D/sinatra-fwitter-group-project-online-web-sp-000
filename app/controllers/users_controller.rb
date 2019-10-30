@@ -20,13 +20,17 @@ class UsersController < ApplicationController
   end
 
   get '/login' do
-    erb :'users/login'
+    @current_user = User.find_by_id(session[:user_id])
+    if @current_user
+      redirect '/tweets'
+    else
+      erb :'users/login'
+    end
   end
 
   post '/login' do
     @user = User.find_by(:username => params[:username])
-    binding.pry
-    if @user != nil && @user.password == params[:password]
+    if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
       @username = @user.username
       redirect :'/tweets'
