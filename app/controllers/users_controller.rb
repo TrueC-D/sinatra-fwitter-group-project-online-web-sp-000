@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   get '/signup' do
-    @current_user = User.find_by_id(session[:user_id])
-    if @current_user
+    if current_user
       redirect '/tweets'
     else
       erb :'users/create_user'
@@ -20,8 +19,7 @@ class UsersController < ApplicationController
   end
 
   get '/login' do
-    @current_user = User.find_by_id(session[:user_id])
-    if @current_user
+    if current_user
       redirect '/tweets'
     else
       erb :'users/login'
@@ -41,6 +39,6 @@ class UsersController < ApplicationController
 
   get '/logout' do
     session.clear
-    redirect '/'
+    redirect '/login'
   end
 end
