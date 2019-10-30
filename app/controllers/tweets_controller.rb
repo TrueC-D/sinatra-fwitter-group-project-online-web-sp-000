@@ -9,4 +9,11 @@ class TweetsController < ApplicationController
     end
   end
 
+  get '/users/#{user.slug}' do
+    if current_user
+      erb :'users/show'
+    else
+    end
+  end
+
 end
