@@ -9,11 +9,15 @@ class TweetsController < ApplicationController
     end
   end
 
-  get '/users/#{user.slug}' do
-    if current_user
-      erb :'users/show'
-    else
-    end
+  get '/tweets/new' do
+    erb :'tweets/new'
   end
 
+  get '/tweets/#{tweet.id}'  do
+    erb :'tweets/show_tweet'
+  end
+
+  get '/tweets/#{tweet.id}/edit' do
+    erb :'tweets/edit_tweet'
+  end
 end
