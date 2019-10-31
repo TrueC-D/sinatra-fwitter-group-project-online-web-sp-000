@@ -45,4 +45,9 @@ class UsersController < ApplicationController
       redirect '/'
     end
   end
+
+  get '/users/#{user.slug}' do
+    erb :'users/show'
+  end
+
 end
