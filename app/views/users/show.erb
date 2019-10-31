@@ -1,5 +1,4 @@
-<% user.tweets.each do |content, id| %>
-  <%= content%>
-  <a href = "/tweets/<%=id%>/edit"<%="edit"%>
-    <br>
+<%current_user.tweets.each do |tweet| %>
+<%= tweet.content%>
+  <!-- <a href= "/tweets/<%=tweet.id%>/edit" value = <%= tweet.content%> </a> -->
 <%end%>
