@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+  get "/users/:slug" do
+    @user = User.find_by_slug(params[:slug])
+    erb :'users/show'
+  end
+
   get '/signup' do
     if current_user
       redirect '/tweets'
@@ -44,12 +49,6 @@ class UsersController < ApplicationController
     else
       redirect '/'
     end
-  end
-
-  get "/users/#{slug}" do
-    binding.pry
-    user = User.find_by_slug(params[:slug])
-    erb :'users/show'
   end
 
   def slug
