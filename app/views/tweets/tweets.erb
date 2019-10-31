@@ -1,1 +1,6 @@
-"Welcome, <%"#{@username}"%>"
+<h2>Welcome, <%=current_user.username %> <h2>
+
+<%current_user.tweets.each do |tweet| %>
+<%= tweet.content%>
+  <!-- <a href= "/tweets/<%=tweet.id%>/edit" value = <%= tweet.content%> </a> -->
+<%end%>
