@@ -46,9 +46,13 @@ class UsersController < ApplicationController
     end
   end
 
-  get '/users/#{user.slug}' do
+  get "/users/#{slug}" do
+    binding.pry
     user = User.find_by_slug(params[:slug])
     erb :'users/show'
   end
 
+  def slug
+    self.username.gsub(' ', '-').downcase
+  end
 end
