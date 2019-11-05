@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   end
 
   post '/signup' do
-    if params.any? {|key, value| value.strip.length == 0} == true
+    if params.any? {|key, value| value.strip.length == 0}
       redirect '/signup'
     else
       user = User.new(:username => params[:username], :email => params[:email], :password => params[:password])
@@ -51,14 +51,12 @@ class UsersController < ApplicationController
     end
   end
 
-<<<<<<< HEAD
   def slug
     self.username.gsub(' ', '-').downcase
-=======
+  end
+
   get '/users/#{user.slug}' do
-    binding.pry
     user = User.find_by_slug(params[:slug])
     erb :'users/show'
->>>>>>> 5553d7986d0a0d1bfbd961a622d2e08144b4989e
   end
 end
