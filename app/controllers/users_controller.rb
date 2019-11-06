@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   end
 
   post '/signup' do
+    binding.pry
     if params.any? {|key, value| value.strip.length == 0}
       redirect '/signup'
     else
