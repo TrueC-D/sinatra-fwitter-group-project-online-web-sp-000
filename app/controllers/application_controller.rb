@@ -20,11 +20,6 @@ class ApplicationController < Sinatra::Base
     def is_logged_in?
       !!session[:user_id]
     end
-    #
-    # def self.find_by_slug(slug)
-    #   self.all.find{ |instance| instance.slug == slug}
-    # end
-
   end
 
 end
