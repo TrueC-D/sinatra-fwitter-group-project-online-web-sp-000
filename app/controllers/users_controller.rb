@@ -51,12 +51,4 @@ class UsersController < ApplicationController
     end
   end
 
-  def slug
-    self.username.gsub(' ', '-').downcase
-  end
-
-  get '/users/#{user.slug}' do
-    user = User.find_by_slug(params[:slug])
-    erb :'users/show'
-  end
 end
